@@ -1,0 +1,25 @@
+{
+  "name": "douban-movies",
+  "version": "1.0.0",
+  "description": "douban movies",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happystory/douban-movies.git"
+  },
+  "keywords": [
+    "movies"
+  ],
+  "author": "liuyao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/happystory/douban-movies/issues"
+  },
+  "homepage": "https://github.com/happystory/douban-movies#readme",
+  "dependencies": {
+    "koa": "^2.5.0"
+  }
+}
