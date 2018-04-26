@@ -1,12 +1,15 @@
+const path = require('path')
 const Koa = require('koa')
-const ejs = require('ejs')
+const views = require('koa-views')
 const app = new Koa()
-const { ejsTpl } = require('./tpl')
+
+app.use(views(path.resolve(__dirname + '/views'), {
+  extension: 'ejs'
+}))
 
 app.use(async (ctx, next) => {
-  ctx.type = 'html'
-  ctx.body = ejs.render(ejsTpl, {
-    you: 'test'
+  await ctx.render('home', {
+    you: 'John'
   })
 })
 app.listen(8090)
