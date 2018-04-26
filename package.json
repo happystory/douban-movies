@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/happystory/douban-movies#readme",
   "dependencies": {
+    "ejs": "^2.5.9",
     "koa": "^2.5.0"
   }
 }
