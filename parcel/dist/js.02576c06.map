@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/index.js"],"names":["setTimeout","app","textContent"],"mappings":";AAAAA,WAAW,YAAM;AACfC,MAAIC,WAAJ,GAAkB,KAAlB;AACD,CAFD,EAEG,IAFH","file":"js.02576c06.map","sourceRoot":"..","sourcesContent":["setTimeout(() => {\n  app.textContent = '333'\n}, 2000)\n"]}

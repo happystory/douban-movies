@@ -2,34 +2,32 @@ const puppeteer = require('puppeteer')
 
 const url = 'https://movie.douban.com/tag/#/?sort=R&range=6,10&tags='
 
-const sleep = time => new Promise(resolve => {
-  setTimeout(resolve, time)
-})
-
 ;(async () => {
   console.log('Start visit the target page')
 
   const browser = await puppeteer.launch({
     args: ['--no-sandbox'],
-    dumpio: false
+    dumpio: false,
+    // headless: false
   })
 
   const page = await browser.newPage()
+  page.setViewport({
+    width: 1376,
+    height: 768,
+  });
   page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36')
 
   await page.goto(url, {
     waitUntil: 'networkidle2'
   })
 
-  await sleep(3000)
-
-  await page.waitForSelector('.more')
-
-  for(let i = 0; i < 2; i++) {
-    await sleep(3000)
+  for(let i = 0; i < 1; i++) {
+    await page.waitForSelector('.more')
     await page.click('.more')
   }
 
+  await page.waitFor(1000)
   const result = await page.evaluate(() => {
     var $ = window.$
     var items = $('.list-wp a')
@@ -54,8 +52,10 @@ const sleep = time => new Promise(resolve => {
     return links
   })
 
-  console.log(result)
   await page.screenshot({path: 'screenshot.png'});
 
   await browser.close();
+
+  process.send({result})
+  process.exit(0)
 })()

@@ -4,7 +4,8 @@
   "description": "douban movies",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "build": "parcel build parcel/index.html --no-cache -d parcel/dist --public-url /dist/"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,14 @@
   },
   "homepage": "https://github.com/happystory/douban-movies#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "ejs": "^2.5.9",
     "koa": "^2.5.0",
+    "koa-static": "^4.0.2",
     "koa-views": "^6.1.4",
     "puppeteer": "^1.3.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.7.1"
   }
 }
